@@ -9,60 +9,52 @@ export default function Home() {
 
   const categories = [
     {
-      name: "Aseel Dates (کھجور - بلوچستان/سندھ)",
-      icon: "🍇",
-      description: "Premium Aseel dates from Balochistan & Sindh",
-      image: "https://upload.wikimedia.org/wikipedia/commons/3/3b/Dates_fruit.JPG",
+      name: "Punjab Specialties",
+      urduName: "پنجاب کی خاص چیزیں",
+      icon: "🟫🍬",
+      description: "Delicious Multani Sohan Halwa topped with premium dry fruits, a true taste of Punjab.",
+      image: "https://hafizhalwa.com/cdn/shop/files/DSC00617_1.jpg?v=1741201030&width=1946",
       itemCount: "20+ varieties"
     },
     {
-      name: "Karachi Halwa (کراچی حلوہ)",
-      icon: "🍬",
-      description: "Chewy Karachi Halwa from Sindh",
-      image: "https://upload.wikimedia.org/wikipedia/commons/0/01/Karachi_Halwa.jpg",
+      name: "Sindh Specialties",
+      urduName: "سندھ کی خاص چیزیں",
+      icon: "🟤🌴",
+      description: "Khairpur Aseel Dates, soft, sweet, and export-quality, representing Sindh’s finest.",
+      image: "https://ranveerbrar.com/wp-content/uploads/2021/11/Rose-Halwa-scaled-scaled.jpg",
       itemCount: "10+ varieties"
     },
     {
-      name: "UHT Milk (یو ایچ ٹی دودھ)",
-      icon: "🥛",
-      description: "Long-life milk available nationwide",
-      image: "https://upload.wikimedia.org/wikipedia/commons/f/fd/Milk_cartons.jpg",
+      name: "KPK Specialties",
+      urduName: "خیبر پختونخوا کی خاص چیزیں",
+      icon: "🌰🏔️",
+      description: "Premium Chilgoza (pine nuts) from KPK, rich in flavor and protein.",
+      image: "https://www.maiva.co/cdn/shop/articles/introduction-_-uht--high-temperature-processing_44391446-c378-4752-805d-8742c94985dd_1200x.jpg?v=1721028110",
       itemCount: "5+ brands"
     },
     {
-      name: "Canned/Frozen Meats (گوشت - کنڈی/فروزن)",
-      icon: "🥩",
-      description: "Ready-to-eat canned or frozen meats",
-      image: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Canned_meat.jpg",
+      name: "Balochistan Specialties",
+      urduName: "بلوچستان کی خاص چیزیں",
+      icon: "🍂🍇",
+      description: "Panjgur and Turbat dates with an earthy desert touch, iconic Balochistan taste.",
+      image: "https://www.thedailymeal.com/img/gallery/these-are-the-11-unhealthiest-canned-meats-you-can-buy/l-intro-1745586539.jpg",
       itemCount: "10+ varieties"
     },
     {
-      name: "Shelf-Stable Lentils & Beans (دالیں اور لوبیا)",
-      icon: "🫘",
-      description: "High-quality lentils and beans",
-      image: "https://upload.wikimedia.org/wikipedia/commons/7/71/Lentils.jpg",
+      name: "Gilgit-Baltistan Specialties",
+      urduName: "گلگت بلتستان کی خاص چیزیں",
+      icon: "🍑🏔️",
+      description: "Dried apricots from GB, naturally sweet with a mountain-fresh vibe.",
+      image: "https://keepfitkingdom.com/wp-content/uploads/2021/01/Beans-Top-5-High-Protein-Varieties-Youll-Love-Keep-Fit-Kingdom-842x472.jpg",
       itemCount: "15+ varieties"
     },
     {
-      name: "Basmati Rice (چاول - پنجاب)",
-      icon: "🍚",
-      description: "Aromatic Basmati rice from Punjab",
-      image: "https://upload.wikimedia.org/wikipedia/commons/4/41/Basmati_rice.jpg",
+      name: "Azad Kashmir Specialties",
+      urduName: "آزاد کشمیر کی خاص چیزیں",
+      icon: "🥜🪵",
+      description: "Authentic walnuts in shell, freshly cracked on a traditional wooden surface.",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrhCr9E1pvIdlRu-3fDNBap-Hn6t3WDwSnbw&s",
       itemCount: "8+ varieties"
-    },
-    {
-      name: "Dried Fruits (خشک میوہ - ہنزہ)",
-      icon: "🍑",
-      description: "Apricots, figs & more from Hunza Valley",
-      image: "https://upload.wikimedia.org/wikipedia/commons/5/57/Dried_apricots.jpg",
-      itemCount: "25+ varieties"
-    },
-    {
-      name: "Kinnow Juice & Citrus (سنترہ - سرگودھا)",
-      icon: "🍊",
-      description: "Fresh & preserved citrus products",
-      image: "https://upload.wikimedia.org/wikipedia/commons/3/32/Kinnow.jpg",
-      itemCount: "10+ options"
     }
   ];
 
@@ -78,8 +70,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Meva Ghar - Premium Dry Fruits & Nuts in Pakistan | میوہ گھر</title>
-        <meta name="description" content="Buy premium quality dry fruits and nuts online in Pakistan. Free delivery across major cities. بہترین خشک میوہ جات" />
+        <title>Meva Ghar - Premium Regional Specialties in Pakistan | میوہ گھر</title>
+        <meta name="description" content="Buy premium quality regional specialties online in Pakistan. Free delivery across major cities." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -182,11 +174,11 @@ export default function Home() {
                   <span className="text-sm font-medium">100% Natural & Fresh | قدرتی اور تازہ</span>
                 </div>
                 <h1 className="text-3xl md:text-5xl font-bold leading-tight">
-                  Premium Dry Fruits & Nuts
-                  <span className="block text-2xl md:text-4xl mt-2 text-amber-100">بہترین خشک میوہ جات</span>
+                  Pakistan's Regional Specialties
+                  <span className="block text-2xl md:text-4xl mt-2 text-amber-100">پاکستان کی علاقائی مصنوعات</span>
                 </h1>
                 <p className="text-lg text-amber-50">
-                  Pakistan's trusted source for premium quality dry fruits and nuts. Delivered fresh to your doorstep across all major cities.
+                  Discover authentic flavors from every corner of Pakistan. Premium quality products delivered fresh to your doorstep.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <a href="#categories" className="bg-white text-amber-700 px-8 py-3 rounded-lg font-semibold hover:bg-amber-50 transition flex items-center gap-2">
@@ -201,7 +193,7 @@ export default function Home() {
               <div className="hidden md:block">
                 <img
                   src="https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=800"
-                  alt="Premium dry fruits and nuts"
+                  alt="Premium regional specialties"
                   className="rounded-2xl shadow-2xl"
                 />
               </div>
@@ -228,7 +220,7 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg mb-1">Premium Quality</h3>
-                  <p className="text-gray-600">100% natural products</p>
+                  <p className="text-gray-600">100% authentic products</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -244,44 +236,71 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Main Categories Section */}
-        <section id="categories" className="py-16 bg-gradient-to-b from-white to-amber-50">
+        {/* Main Categories Section - 3 per row with hover animations */}
+        <section id="categories" className="py-20 bg-gradient-to-b from-white to-amber-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-3">Shop by Category</h2>
-              <p className="text-xl text-amber-800 mb-2">اقسام کے مطابق خریداری کریں</p>
-              <p className="text-gray-600 text-lg">Click on any category to explore all products</p>
+            <div className="text-center mb-16">
+              <h2 className="text-5xl font-bold mb-4">Shop by Region</h2>
+              <p className="text-2xl text-amber-800 mb-2">علاقے کے مطابق خریداری کریں</p>
+              <p className="text-gray-600 text-lg">Hover to explore each region's specialties</p>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {/* 3 Categories per row */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {categories.map((category) => (
                 <a
                   key={category.name}
                   href={`/category/${category.name.toLowerCase().split(' ')[0]}`}
-                  className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 group cursor-pointer transform hover:-translate-y-1"
+                  className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 group cursor-pointer relative"
                 >
-                  <div className="relative overflow-hidden h-48">
+                  {/* Card with 80 height */}
+                  <div className="relative overflow-hidden h-80">
+                    {/* Image that dims on hover */}
                     <img
                       src={category.image}
                       alt={category.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                      className="w-full h-full object-cover transition duration-700 group-hover:brightness-[0.3]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div className="absolute bottom-3 left-3 right-3">
-                      <div className="text-6xl mb-2">{category.icon}</div>
-                    </div>
-                  </div>
-                  <div className="p-5">
-                    <h3 className="font-bold text-xl mb-1 group-hover:text-amber-700 transition">
-                      {category.name}
-                    </h3>
-                    <p className="text-gray-600 text-sm mb-3">{category.description}</p>
-                    <div className="flex justify-between items-center">
-                      <span className="text-amber-700 font-semibold text-sm">{category.itemCount}</span>
-                      <span className="text-amber-600 group-hover:translate-x-1 transition flex items-center gap-1">
-                        View Products
-                        <ChevronRight className="w-4 h-4" />
+
+                    {/* Gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+
+                    {/* Content that appears on hover */}
+                    <div className="absolute inset-0 flex flex-col items-center justify-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10">
+                      {/* Giant emoji that scales up */}
+                      <div className="text-8xl mb-4 transform scale-0 group-hover:scale-100 transition-transform duration-500">
+                        {category.icon}
+                      </div>
+
+                      {/* English name */}
+                      <h3 className="text-white font-bold text-3xl text-center mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        {category.name}
+                      </h3>
+
+                      {/* Urdu name */}
+                      <p className="text-amber-200 text-2xl text-center mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
+                        {category.urduName}
+                      </p>
+
+                      {/* Description */}
+                      <p className="text-white text-center text-lg mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-150">
+                        {category.description}
+                      </p>
+
+                      {/* Item count badge */}
+                      <span className="bg-amber-600 text-white px-6 py-2 rounded-full font-semibold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-200">
+                        {category.itemCount}
                       </span>
+                    </div>
+
+                    {/* Default state - bottom label that fades out on hover */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6 group-hover:opacity-0 transition-opacity duration-300">
+                      <h3 className="text-white font-bold text-2xl mb-1">
+                        {category.name}
+                      </h3>
+                      <p className="text-amber-200 text-lg">
+                        {category.urduName}
+                      </p>
                     </div>
                   </div>
                 </a>
@@ -294,8 +313,8 @@ export default function Home() {
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">Health Benefits</h2>
-              <p className="text-gray-600 text-lg">صحت کے فوائد</p>
+              <h2 className="text-3xl font-bold mb-4">Why Choose Regional Specialties</h2>
+              <p className="text-gray-600 text-lg">علاقائی مصنوعات کیوں منتخب کریں</p>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {benefits.map((benefit, idx) => (
@@ -372,7 +391,7 @@ export default function Home() {
                   </div>
                 </div>
                 <p className="text-sm">
-                  Pakistan's premier destination for premium quality dry fruits, nuts, and healthy snacks.
+                  Pakistan's premier destination for authentic regional specialties from across the country.
                 </p>
               </div>
               <div>
