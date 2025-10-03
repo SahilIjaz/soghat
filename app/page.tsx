@@ -1,114 +1,110 @@
 'use client'
 import Head from 'next/head';
-import { ShoppingCart, Search, Menu, X, ChevronRight, Star, Truck, Shield, Clock, Award, Leaf } from 'lucide-react';
+import { ShoppingCart, Search, Menu, X, ChevronRight, Truck, Shield, Award, Leaf, MapPin, Phone, Mail } from 'lucide-react';
 import { useState } from 'react';
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [cartCount, setCartCount] = useState(0);
 
-  const featuredProducts = [
+  const categories = [
     {
-      id: 1,
-      name: "Premium California Almonds",
-      price: 24.99,
-      image: "https://images.unsplash.com/photo-1508747703725-719777637510?w=500",
-      rating: 4.9,
-      category: "Almonds",
-      weight: "500g"
+      name: "Aseel Dates (کھجور - بلوچستان/سندھ)",
+      icon: "🍇",
+      description: "Premium Aseel dates from Balochistan & Sindh",
+      image: "https://upload.wikimedia.org/wikipedia/commons/3/3b/Dates_fruit.JPG",
+      itemCount: "20+ varieties"
     },
     {
-      id: 2,
-      name: "Jumbo Cashew Nuts",
-      price: 32.99,
-      image: "https://images.unsplash.com/photo-1585543805890-6051f7829f98?w=500",
-      rating: 4.8,
-      category: "Cashews",
-      weight: "500g"
+      name: "Karachi Halwa (کراچی حلوہ)",
+      icon: "🍬",
+      description: "Chewy Karachi Halwa from Sindh",
+      image: "https://upload.wikimedia.org/wikipedia/commons/0/01/Karachi_Halwa.jpg",
+      itemCount: "10+ varieties"
     },
     {
-      id: 3,
-      name: "Premium Walnuts",
-      price: 28.99,
-      image: "https://images.unsplash.com/photo-1622484211850-7b5a7c4afc9e?w=500",
-      rating: 4.7,
-      category: "Walnuts",
-      weight: "500g"
+      name: "UHT Milk (یو ایچ ٹی دودھ)",
+      icon: "🥛",
+      description: "Long-life milk available nationwide",
+      image: "https://upload.wikimedia.org/wikipedia/commons/f/fd/Milk_cartons.jpg",
+      itemCount: "5+ brands"
     },
     {
-      id: 4,
-      name: "Organic Medjool Dates",
-      price: 19.99,
-      image: "https://images.unsplash.com/photo-1577003833154-a2e8e2a16f3d?w=500",
-      rating: 5.0,
-      category: "Dates",
-      weight: "500g"
+      name: "Canned/Frozen Meats (گوشت - کنڈی/فروزن)",
+      icon: "🥩",
+      description: "Ready-to-eat canned or frozen meats",
+      image: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Canned_meat.jpg",
+      itemCount: "10+ varieties"
     },
     {
-      id: 5,
-      name: "Turkish Dried Apricots",
-      price: 16.99,
-      image: "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=500",
-      rating: 4.6,
-      category: "Dried Fruits",
-      weight: "500g"
+      name: "Shelf-Stable Lentils & Beans (دالیں اور لوبیا)",
+      icon: "🫘",
+      description: "High-quality lentils and beans",
+      image: "https://upload.wikimedia.org/wikipedia/commons/7/71/Lentils.jpg",
+      itemCount: "15+ varieties"
     },
     {
-      id: 6,
-      name: "Roasted Pistachios",
-      price: 34.99,
-      image: "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=500",
-      rating: 4.9,
-      category: "Pistachios",
-      weight: "500g"
+      name: "Basmati Rice (چاول - پنجاب)",
+      icon: "🍚",
+      description: "Aromatic Basmati rice from Punjab",
+      image: "https://upload.wikimedia.org/wikipedia/commons/4/41/Basmati_rice.jpg",
+      itemCount: "8+ varieties"
     },
     {
-      id: 7,
-      name: "Mixed Dry Fruits Premium",
-      price: 29.99,
-      image: "https://images.unsplash.com/photo-1607623488503-21394956ad50?w=500",
-      rating: 4.8,
-      category: "Mix",
-      weight: "500g"
+      name: "Dried Fruits (خشک میوہ - ہنزہ)",
+      icon: "🍑",
+      description: "Apricots, figs & more from Hunza Valley",
+      image: "https://upload.wikimedia.org/wikipedia/commons/5/57/Dried_apricots.jpg",
+      itemCount: "25+ varieties"
     },
     {
-      id: 8,
-      name: "Golden Raisins",
-      price: 12.99,
-      image: "https://images.unsplash.com/photo-1580498338548-d7b8b47e8c63?w=500",
-      rating: 4.5,
-      category: "Raisins",
-      weight: "500g"
+      name: "Kinnow Juice & Citrus (سنترہ - سرگودھا)",
+      icon: "🍊",
+      description: "Fresh & preserved citrus products",
+      image: "https://upload.wikimedia.org/wikipedia/commons/3/32/Kinnow.jpg",
+      itemCount: "10+ options"
     }
   ];
 
-  const categories = [
-    { name: "Almonds", icon: "🥜" },
-    { name: "Cashews", icon: "🌰" },
-    { name: "Walnuts", icon: "🥥" },
-    { name: "Dates", icon: "🍇" },
-    { name: "Pistachios", icon: "🌿" },
-    { name: "Dried Fruits", icon: "🍑" },
-    { name: "Trail Mix", icon: "🥗" },
-    { name: "Gift Boxes", icon: "🎁" }
+  const benefits = [
+    { icon: "💪", title: "High in Protein", desc: "Essential nutrients" },
+    { icon: "❤️", title: "Heart Healthy", desc: "Cardiovascular wellness" },
+    { icon: "🧠", title: "Brain Boost", desc: "Mental clarity" },
+    { icon: "⚡", title: "Energy Rich", desc: "Natural vitality" }
   ];
 
-  const benefits = [
-    { icon: "💪", title: "High in Protein", desc: "Essential nutrients for your body" },
-    { icon: "❤️", title: "Heart Healthy", desc: "Promotes cardiovascular wellness" },
-    { icon: "🧠", title: "Brain Boost", desc: "Omega-3 for mental clarity" },
-    { icon: "⚡", title: "Energy Rich", desc: "Natural source of vitality" }
-  ];
+  const cities = ["Karachi", "Lahore", "Islamabad", "Rawalpindi", "Faisalabad", "Multan", "Peshawar", "Quetta"];
 
   return (
     <>
       <Head>
-        <title>NutriVault - Premium Dry Fruits & Nuts Store</title>
-        <meta name="description" content="Shop premium quality dry fruits, nuts, and healthy snacks delivered fresh to your door" />
+        <title>Meva Ghar - Premium Dry Fruits & Nuts in Pakistan | میوہ گھر</title>
+        <meta name="description" content="Buy premium quality dry fruits and nuts online in Pakistan. Free delivery across major cities. بہترین خشک میوہ جات" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
+        {/* Top Bar */}
+        <div className="bg-gradient-to-r from-green-700 to-green-600 text-white py-2">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-wrap justify-between items-center text-sm">
+              <div className="flex items-center gap-4">
+                <span className="flex items-center gap-1">
+                  <MapPin className="w-4 h-4" />
+                  Delivery across Pakistan
+                </span>
+                <span className="hidden md:inline">Free shipping on orders over Rs. 3000</span>
+              </div>
+              <div className="flex items-center gap-4">
+                <span className="flex items-center gap-1">
+                  <Phone className="w-4 h-4" />
+                  0300-1234567
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Header */}
         <header className="bg-white shadow-md sticky top-0 z-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -116,20 +112,22 @@ export default function Home() {
               {/* Logo */}
               <div className="flex items-center space-x-2">
                 <div className="w-10 h-10 bg-gradient-to-br from-amber-600 to-orange-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">
-                  NV
+                  م
                 </div>
-                <span className="text-2xl font-bold bg-gradient-to-r from-amber-700 to-orange-600 bg-clip-text text-transparent">
-                  NutriVault
-                </span>
+                <div>
+                  <span className="text-2xl font-bold bg-gradient-to-r from-amber-700 to-orange-600 bg-clip-text text-transparent block">
+                    Meva Ghar
+                  </span>
+                  <span className="text-xs text-gray-500">میوہ گھر</span>
+                </div>
               </div>
 
               {/* Desktop Navigation */}
               <nav className="hidden md:flex items-center space-x-8">
                 <a href="#" className="text-gray-700 hover:text-amber-600 font-medium transition">Home</a>
-                <a href="#" className="text-gray-700 hover:text-amber-600 font-medium transition">Shop</a>
-                <a href="#" className="text-gray-700 hover:text-amber-600 font-medium transition">Categories</a>
-                <a href="#" className="text-gray-700 hover:text-amber-600 font-medium transition">About</a>
-                <a href="#" className="text-gray-700 hover:text-amber-600 font-medium transition">Contact</a>
+                <a href="#categories" className="text-gray-700 hover:text-amber-600 font-medium transition">Categories</a>
+                <a href="#about" className="text-gray-700 hover:text-amber-600 font-medium transition">About</a>
+                <a href="#contact" className="text-gray-700 hover:text-amber-600 font-medium transition">Contact</a>
               </nav>
 
               {/* Right Actions */}
@@ -159,10 +157,9 @@ export default function Home() {
               <div className="md:hidden py-4 border-t">
                 <nav className="flex flex-col space-y-3">
                   <a href="#" className="text-gray-700 hover:text-amber-600 font-medium">Home</a>
-                  <a href="#" className="text-gray-700 hover:text-amber-600 font-medium">Shop</a>
-                  <a href="#" className="text-gray-700 hover:text-amber-600 font-medium">Categories</a>
-                  <a href="#" className="text-gray-700 hover:text-amber-600 font-medium">About</a>
-                  <a href="#" className="text-gray-700 hover:text-amber-600 font-medium">Contact</a>
+                  <a href="#categories" className="text-gray-700 hover:text-amber-600 font-medium">Categories</a>
+                  <a href="#about" className="text-gray-700 hover:text-amber-600 font-medium">About</a>
+                  <a href="#contact" className="text-gray-700 hover:text-amber-600 font-medium">Contact</a>
                 </nav>
               </div>
             )}
@@ -177,27 +174,28 @@ export default function Home() {
               backgroundSize: '50px 50px'
             }}></div>
           </div>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                 <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
                   <Leaf className="w-4 h-4" />
-                  <span className="text-sm font-medium">100% Natural & Organic</span>
+                  <span className="text-sm font-medium">100% Natural & Fresh | قدرتی اور تازہ</span>
                 </div>
-                <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-                  Premium Dry Fruits & Nuts Delivered Fresh
+                <h1 className="text-3xl md:text-5xl font-bold leading-tight">
+                  Premium Dry Fruits & Nuts
+                  <span className="block text-2xl md:text-4xl mt-2 text-amber-100">بہترین خشک میوہ جات</span>
                 </h1>
-                <p className="text-xl text-amber-50">
-                  Discover nature's finest treasures. Handpicked premium nuts and dried fruits sourced from the best farms worldwide.
+                <p className="text-lg text-amber-50">
+                  Pakistan's trusted source for premium quality dry fruits and nuts. Delivered fresh to your doorstep across all major cities.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <button className="bg-white text-amber-700 px-8 py-3 rounded-lg font-semibold hover:bg-amber-50 transition flex items-center gap-2">
-                    Shop Now
+                  <a href="#categories" className="bg-white text-amber-700 px-8 py-3 rounded-lg font-semibold hover:bg-amber-50 transition flex items-center gap-2">
+                    Browse Categories
                     <ChevronRight className="w-5 h-5" />
-                  </button>
-                  <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-amber-700 transition">
-                    Learn More
-                  </button>
+                  </a>
+                  <a href="tel:03001234567" className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-amber-700 transition">
+                    Call Now
+                  </a>
                 </div>
               </div>
               <div className="hidden md:block">
@@ -220,8 +218,8 @@ export default function Home() {
                   <Truck className="w-6 h-6 text-amber-700" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-1">Free Shipping</h3>
-                  <p className="text-gray-600">On orders over $40</p>
+                  <h3 className="font-semibold text-lg mb-1">Free Delivery</h3>
+                  <p className="text-gray-600">Orders over Rs. 3000</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -238,24 +236,70 @@ export default function Home() {
                   <Award className="w-6 h-6 text-amber-700" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-1">Certified Organic</h3>
-                  <p className="text-gray-600">Trusted & certified</p>
+                  <h3 className="font-semibold text-lg mb-1">Trusted Brand</h3>
+                  <p className="text-gray-600">5000+ happy customers</p>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Health Benefits */}
-        <section className="py-16 bg-gradient-to-b from-amber-50 to-white">
+        {/* Main Categories Section */}
+        <section id="categories" className="py-16 bg-gradient-to-b from-white to-amber-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">Health Benefits of Dry Fruits</h2>
-              <p className="text-gray-600 text-lg">Nature's perfect superfood packed with nutrients</p>
+              <h2 className="text-4xl font-bold mb-3">Shop by Category</h2>
+              <p className="text-xl text-amber-800 mb-2">اقسام کے مطابق خریداری کریں</p>
+              <p className="text-gray-600 text-lg">Click on any category to explore all products</p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {categories.map((category) => (
+                <a
+                  key={category.name}
+                  href={`/category/${category.name.toLowerCase().split(' ')[0]}`}
+                  className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 group cursor-pointer transform hover:-translate-y-1"
+                >
+                  <div className="relative overflow-hidden h-48">
+                    <img
+                      src={category.image}
+                      alt={category.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div className="absolute bottom-3 left-3 right-3">
+                      <div className="text-6xl mb-2">{category.icon}</div>
+                    </div>
+                  </div>
+                  <div className="p-5">
+                    <h3 className="font-bold text-xl mb-1 group-hover:text-amber-700 transition">
+                      {category.name}
+                    </h3>
+                    <p className="text-gray-600 text-sm mb-3">{category.description}</p>
+                    <div className="flex justify-between items-center">
+                      <span className="text-amber-700 font-semibold text-sm">{category.itemCount}</span>
+                      <span className="text-amber-600 group-hover:translate-x-1 transition flex items-center gap-1">
+                        View Products
+                        <ChevronRight className="w-4 h-4" />
+                      </span>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Health Benefits */}
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4">Health Benefits</h2>
+              <p className="text-gray-600 text-lg">صحت کے فوائد</p>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {benefits.map((benefit, idx) => (
-                <div key={idx} className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center">
+                <div key={idx} className="bg-amber-50 p-6 rounded-xl shadow-sm hover:shadow-md transition text-center">
                   <div className="text-5xl mb-4">{benefit.icon}</div>
                   <h3 className="font-semibold text-lg mb-2">{benefit.title}</h3>
                   <p className="text-gray-600 text-sm">{benefit.desc}</p>
@@ -265,136 +309,45 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Categories */}
-        <section className="py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-center mb-12">Shop by Category</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
-              {categories.map((category) => (
-                <button
-                  key={category.name}
-                  className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md hover:border-amber-600 border-2 border-transparent transition text-center group"
-                >
-                  <div className="text-4xl mb-3 group-hover:scale-110 transition">{category.icon}</div>
-                  <div className="font-semibold text-gray-800 text-sm">{category.name}</div>
-                </button>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Featured Products */}
-        <section className="py-16 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center mb-12">
-              <div>
-                <h2 className="text-3xl font-bold mb-2">Featured Products</h2>
-                <p className="text-gray-600">Handpicked premium selection</p>
-              </div>
-              <button className="text-amber-700 font-semibold flex items-center gap-2 hover:gap-3 transition-all">
-                View All <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {featuredProducts.map((product) => (
-                <div key={product.id} className="bg-amber-50 rounded-xl overflow-hidden hover:shadow-xl transition group">
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-56 object-cover group-hover:scale-110 transition duration-500"
-                    />
-                    <div className="absolute top-2 left-2 bg-amber-600 text-white px-3 py-1 rounded-lg text-sm font-semibold">
-                      {product.weight}
-                    </div>
-                    <div className="absolute top-2 right-2 bg-green-600 text-white px-3 py-1 rounded-lg text-xs font-semibold flex items-center gap-1">
-                      <Leaf className="w-3 h-3" />
-                      Organic
-                    </div>
-                  </div>
-                  <div className="p-4">
-                    <div className="text-xs text-amber-700 font-semibold mb-1 uppercase tracking-wide">{product.category}</div>
-                    <h3 className="font-bold text-lg mb-2">{product.name}</h3>
-                    <div className="flex items-center gap-1 mb-3">
-                      <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-                      <span className="text-sm font-medium">{product.rating}</span>
-                      <span className="text-sm text-gray-500">(245)</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-2xl font-bold text-amber-700">${product.price}</span>
-                      <button
-                        onClick={() => setCartCount(cartCount + 1)}
-                        className="bg-amber-600 text-white px-4 py-2 rounded-lg hover:bg-amber-700 transition font-medium"
-                      >
-                        Add to Cart
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Why Choose Us */}
+        {/* Delivery Areas */}
         <section className="py-16 bg-gradient-to-r from-amber-100 to-orange-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl font-bold mb-6">Why Choose NutriVault?</h2>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div className="bg-amber-600 text-white rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">✓</div>
-                    <div>
-                      <h3 className="font-semibold mb-1">Farm Fresh Quality</h3>
-                      <p className="text-gray-700">Sourced directly from certified organic farms</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="bg-amber-600 text-white rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">✓</div>
-                    <div>
-                      <h3 className="font-semibold mb-1">No Preservatives</h3>
-                      <p className="text-gray-700">100% natural without any artificial additives</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="bg-amber-600 text-white rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">✓</div>
-                    <div>
-                      <h3 className="font-semibold mb-1">Quality Tested</h3>
-                      <p className="text-gray-700">Every batch tested for purity and quality</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="bg-amber-600 text-white rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-1">✓</div>
-                    <div>
-                      <h3 className="font-semibold mb-1">Eco-Friendly Packaging</h3>
-                      <p className="text-gray-700">Sustainable packaging that cares for the planet</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="hidden md:block">
-                <img
-                  src="https://images.unsplash.com/photo-1508747703725-719777637510?w=600"
-                  alt="Quality almonds"
-                  className="rounded-2xl shadow-xl"
-                />
-              </div>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-3">We Deliver Across Pakistan</h2>
+              <p className="text-gray-700 text-lg">ہم پورے پاکستان میں ترسیل کرتے ہیں</p>
             </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {cities.map((city) => (
+                <div key={city} className="bg-white p-4 rounded-lg text-center shadow-sm hover:shadow-md transition">
+                  <MapPin className="w-6 h-6 text-amber-600 mx-auto mb-2" />
+                  <p className="font-semibold">{city}</p>
+                </div>
+              ))}
+            </div>
+            <p className="text-center mt-6 text-gray-600">And many more cities across Pakistan</p>
           </div>
         </section>
 
-        {/* Newsletter */}
-        <section className="py-16 bg-gradient-to-r from-amber-700 to-orange-700 text-white">
+        {/* Contact/Order Section */}
+        <section id="contact" className="py-16 bg-gradient-to-r from-amber-700 to-orange-700 text-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold mb-4">Get 15% Off Your First Order</h2>
+            <h2 className="text-3xl font-bold mb-4">Ready to Order?</h2>
             <p className="text-amber-50 mb-8 text-lg">
-              Subscribe to our newsletter for exclusive deals and healthy eating tips
+              Call us now or WhatsApp for quick orders | فوری آرڈر کے لیے کال یا واٹس ایپ کریں
             </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+              <a href="tel:03001234567" className="bg-white text-amber-700 px-8 py-3 rounded-lg font-semibold hover:bg-amber-50 transition flex items-center gap-2">
+                <Phone className="w-5 h-5" />
+                Call: 0300-1234567
+              </a>
+              <a href="https://wa.me/923001234567" className="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition flex items-center gap-2">
+                WhatsApp Order
+              </a>
+            </div>
             <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
               <input
                 type="email"
-                placeholder="Enter your email"
+                placeholder="Your email for updates"
                 className="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
               />
               <button className="bg-white text-amber-700 px-8 py-3 rounded-lg font-semibold hover:bg-amber-50 transition">
@@ -405,60 +358,70 @@ export default function Home() {
         </section>
 
         {/* Footer */}
-        <footer className="bg-gray-900 text-gray-300">
+        <footer id="about" className="bg-gray-900 text-gray-300">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div className="grid md:grid-cols-4 gap-8 mb-8">
               <div>
                 <div className="flex items-center space-x-2 mb-4">
                   <div className="w-10 h-10 bg-gradient-to-br from-amber-600 to-orange-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">
-                    NV
+                    م
                   </div>
-                  <span className="text-2xl font-bold text-white">NutriVault</span>
+                  <div>
+                    <span className="text-2xl font-bold text-white block">Meva Ghar</span>
+                    <span className="text-xs text-gray-400">میوہ گھر</span>
+                  </div>
                 </div>
                 <p className="text-sm">
-                  Your trusted source for premium quality dry fruits, nuts, and healthy snacks delivered fresh.
+                  Pakistan's premier destination for premium quality dry fruits, nuts, and healthy snacks.
                 </p>
               </div>
               <div>
                 <h3 className="text-white font-semibold mb-4">Quick Links</h3>
                 <ul className="space-y-2 text-sm">
-                  <li><a href="#" className="hover:text-amber-400 transition">About Us</a></li>
-                  <li><a href="#" className="hover:text-amber-400 transition">Shop All</a></li>
-                  <li><a href="#" className="hover:text-amber-400 transition">Recipes</a></li>
-                  <li><a href="#" className="hover:text-amber-400 transition">Blog</a></li>
+                  <li><a href="#" className="hover:text-amber-400 transition">Home</a></li>
+                  <li><a href="#categories" className="hover:text-amber-400 transition">All Categories</a></li>
+                  <li><a href="#about" className="hover:text-amber-400 transition">About Us</a></li>
+                  <li><a href="#contact" className="hover:text-amber-400 transition">Contact</a></li>
                 </ul>
               </div>
               <div>
                 <h3 className="text-white font-semibold mb-4">Customer Care</h3>
                 <ul className="space-y-2 text-sm">
-                  <li><a href="#" className="hover:text-amber-400 transition">Help Center</a></li>
-                  <li><a href="#" className="hover:text-amber-400 transition">Track Order</a></li>
-                  <li><a href="#" className="hover:text-amber-400 transition">Returns Policy</a></li>
+                  <li><a href="#" className="hover:text-amber-400 transition">How to Order</a></li>
+                  <li><a href="#" className="hover:text-amber-400 transition">Delivery Info</a></li>
+                  <li><a href="#" className="hover:text-amber-400 transition">Return Policy</a></li>
                   <li><a href="#" className="hover:text-amber-400 transition">Bulk Orders</a></li>
                 </ul>
               </div>
               <div>
                 <h3 className="text-white font-semibold mb-4">Contact Us</h3>
                 <ul className="space-y-2 text-sm">
-                  <li>Email: hello@nutrivault.com</li>
-                  <li>Phone: +1 (555) 789-0123</li>
-                  <li>Hours: Mon-Sun 9AM-9PM</li>
+                  <li className="flex items-center gap-2">
+                    <Phone className="w-4 h-4" />
+                    0300-1234567
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Mail className="w-4 h-4" />
+                    info@mevaghar.pk
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <MapPin className="w-4 h-4" />
+                    Lahore, Pakistan
+                  </li>
                   <li className="pt-2">
                     <div className="flex gap-3">
-                      <a href="#" className="hover:text-amber-400 transition">📘</a>
-                      <a href="#" className="hover:text-amber-400 transition">📷</a>
-                      <a href="#" className="hover:text-amber-400 transition">🐦</a>
+                      <a href="#" className="hover:text-amber-400 transition">📘 Facebook</a>
+                      <a href="#" className="hover:text-amber-400 transition">📷 Instagram</a>
                     </div>
                   </li>
                 </ul>
               </div>
             </div>
             <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-              <p className="text-sm">© 2024 NutriVault. All rights reserved.</p>
+              <p className="text-sm">© 2024 Meva Ghar. All rights reserved. | تمام حقوق محفوظ ہیں</p>
               <div className="flex gap-4 mt-4 md:mt-0 text-sm">
                 <a href="#" className="hover:text-amber-400 transition">Privacy Policy</a>
                 <a href="#" className="hover:text-amber-400 transition">Terms of Service</a>
-                <a href="#" className="hover:text-amber-400 transition">Refund Policy</a>
               </div>
             </div>
           </div>
