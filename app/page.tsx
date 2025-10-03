@@ -1,7 +1,6 @@
 
 
 
-
 'use client'
 import Head from 'next/head';
 import { ShoppingCart, Search, Menu, X, ChevronRight, Truck, Shield, Award, Leaf, MapPin, Phone, Mail } from 'lucide-react';
