@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { categories } from "../lib/data";
+import { categories } from "../../lib/data";
 import { useState } from "react";
 
 export default function HomePage() {
@@ -18,7 +18,7 @@ export default function HomePage() {
             <div className="flex items-center">
               <div className="flex-shrink-0">
                 <h1 className="text-2xl font-bold" style={{ color: "#F5F5DC" }}>
-                  🍽️ Soghat
+                  🍽️ FoodMart
                 </h1>
               </div>
               <div className="hidden md:block ml-10">
@@ -266,166 +266,6 @@ export default function HomePage() {
           ))}
         </div>
       </main>
-
-      {/* Footer */}
-      <footer className="mt-auto" style={{ backgroundColor: "#3E2723" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-              <h3
-                className="text-xl font-bold mb-4"
-                style={{ color: "#F5F5DC" }}
-              >
-                Soghat
-              </h3>
-              <p className="text-sm" style={{ color: "#F5F5DC", opacity: 0.8 }}>
-                Your trusted partner for fresh groceries delivered right to your
-                doorstep.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4" style={{ color: "#F5F5DC" }}>
-                Quick Links
-              </h4>
-              <ul className="space-y-2">
-                <li>
-                  <a
-                    href="#"
-                    className="text-sm transition-colors duration-300"
-                    style={{ color: "#F5F5DC", opacity: 0.8 }}
-                    onMouseEnter={(e) =>
-                      (e.currentTarget.style.color = "#2D5541")
-                    }
-                    onMouseLeave={(e) =>
-                      (e.currentTarget.style.color = "#F5F5DC")
-                    }
-                  >
-                    About Us
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-sm transition-colors duration-300"
-                    style={{ color: "#F5F5DC", opacity: 0.8 }}
-                    onMouseEnter={(e) =>
-                      (e.currentTarget.style.color = "#2D5541")
-                    }
-                    onMouseLeave={(e) =>
-                      (e.currentTarget.style.color = "#F5F5DC")
-                    }
-                  >
-                    Contact
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-sm transition-colors duration-300"
-                    style={{ color: "#F5F5DC", opacity: 0.8 }}
-                    onMouseEnter={(e) =>
-                      (e.currentTarget.style.color = "#2D5541")
-                    }
-                    onMouseLeave={(e) =>
-                      (e.currentTarget.style.color = "#F5F5DC")
-                    }
-                  >
-                    FAQs
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4" style={{ color: "#F5F5DC" }}>
-                Customer Service
-              </h4>
-              <ul className="space-y-2">
-                <li>
-                  <a
-                    href="#"
-                    className="text-sm transition-colors duration-300"
-                    style={{ color: "#F5F5DC", opacity: 0.8 }}
-                    onMouseEnter={(e) =>
-                      (e.currentTarget.style.color = "#2D5541")
-                    }
-                    onMouseLeave={(e) =>
-                      (e.currentTarget.style.color = "#F5F5DC")
-                    }
-                  >
-                    Shipping Info
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-sm transition-colors duration-300"
-                    style={{ color: "#F5F5DC", opacity: 0.8 }}
-                    onMouseEnter={(e) =>
-                      (e.currentTarget.style.color = "#2D5541")
-                    }
-                    onMouseLeave={(e) =>
-                      (e.currentTarget.style.color = "#F5F5DC")
-                    }
-                  >
-                    Returns
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-sm transition-colors duration-300"
-                    style={{ color: "#F5F5DC", opacity: 0.8 }}
-                    onMouseEnter={(e) =>
-                      (e.currentTarget.style.color = "#2D5541")
-                    }
-                    onMouseLeave={(e) =>
-                      (e.currentTarget.style.color = "#F5F5DC")
-                    }
-                  >
-                    Track Order
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4" style={{ color: "#F5F5DC" }}>
-                Connect With Us
-              </h4>
-              <div className="flex space-x-4">
-                <a
-                  href="#"
-                  className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
-                  style={{ backgroundColor: "#2D5541", color: "#F5F5DC" }}
-                >
-                  f
-                </a>
-                <a
-                  href="#"
-                  className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
-                  style={{ backgroundColor: "#2D5541", color: "#F5F5DC" }}
-                >
-                  t
-                </a>
-                <a
-                  href="#"
-                  className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
-                  style={{ backgroundColor: "#2D5541", color: "#F5F5DC" }}
-                >
-                  in
-                </a>
-              </div>
-            </div>
-          </div>
-          <div
-            className="mt-8 pt-8 text-center"
-            style={{ borderTop: "1px solid rgba(245, 245, 220, 0.2)" }}
-          >
-            <p className="text-sm" style={{ color: "#F5F5DC", opacity: 0.7 }}>
-              © 2025 Soghat. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
 
       <style jsx>{`
         @keyframes fadeInUp {
