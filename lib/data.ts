@@ -1,0 +1,131 @@
+export const categories = [
+  {
+    id: 1,
+    name: "Traditional Sweets (Mithai)",
+    shelfLife: "10–20 days",
+    cityFocus: ["Multan", "Karachi", "Peshawar", "Lahore"],
+    items: [
+      {
+        name: "Multani Sohan Halwa",
+        city: "Multan",
+        description:
+          "Rich, ghee-based halwa with almonds, pistachios & desi flavor. Iconic Multan specialty, perfect for gifting.",
+        packaging:
+          "Premium gift packaging available in wooden box or custom basket.",
+        image: "/images/sohanhalwa.jpg", // add your images in /public/images
+      },
+      {
+        name: "Karachi Rabri",
+        city: "Karachi",
+        description:
+          "Thick, creamy milk-based delight — rich taste and long shelf life when packed properly.",
+        packaging: "Vacuum-sealed box available for freshness.",
+        image: "/images/rabri.jpg",
+      },
+      {
+        name: "Peshawari Patisa",
+        city: "Peshawar",
+        description:
+          "Crunchy, layered sweet with ghee aroma and nut topping. Highly loved during Eid and weddings.",
+        packaging: "",
+        image: "/images/patisa.jpg",
+      },
+      {
+        name: "Lahori Pera",
+        city: "Lahore",
+        description:
+          "Milky soft mithai with balanced sweetness — famous from Gawalmandi.",
+        packaging: "Small jars and gift boxes available.",
+        image: "/images/pera.jpg",
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: "Dry Fruits & Nuts",
+    shelfLife: "3–6 months",
+    cityFocus: ["Gilgit", "Quetta", "Swat"],
+    items: [
+      {
+        name: "Gilgit Walnuts",
+        city: "Gilgit",
+        description:
+          "Organically sourced mountain walnuts — fresh, crunchy, high in nutrition.",
+        packaging: "Available in resealable pouches or gift jars.",
+        image: "/images/walnuts.jpg",
+      },
+      {
+        name: "Quetta Almonds",
+        city: "Quetta",
+        description:
+          "Locally harvested almonds known for rich oil content and strong aroma.",
+        packaging: "Premium roasted & salted option available.",
+        image: "/images/almonds.jpg",
+      },
+      {
+        name: "Swat Dried Apricots",
+        city: "Swat",
+        description:
+          "Naturally sun-dried, sweet, chewy, and fiber-rich. Ideal for snacks and desserts.",
+        packaging: "",
+        image: "/images/apricots.jpg",
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: "Natural & Pure Products",
+    shelfLife: "6–12 months",
+    cityFocus: ["Hunza", "Chitral", "Skardu"],
+    items: [
+      {
+        name: "Hunza Organic Honey",
+        city: "Hunza",
+        description:
+          "100% pure, unprocessed honey directly from northern beekeepers.",
+        packaging: "Can be packaged in glass jars or honeycomb boxes.",
+        image: "/images/honey.jpg",
+      },
+      {
+        name: "Chitral Desi Ghee",
+        city: "Chitral",
+        description:
+          "Handmade from cow milk, with strong aroma and natural richness.",
+        packaging: "Glass jar and wooden gift pot options available.",
+        image: "/images/ghee.jpg",
+      },
+    ],
+  },
+  {
+    id: 4,
+    name: "Traditional Pickles & Snacks",
+    shelfLife: "4–6 months",
+    cityFocus: ["Sindh", "Punjab"],
+    items: [
+      {
+        name: "Sindhi Mango Pickle",
+        city: "Sindh",
+        description:
+          "Tangy, spicy, oil-based mango pickle prepared with traditional masalas.",
+        packaging: "Available in mini jars and full-size packs.",
+        image: "/images/mango_pickle.jpg",
+      },
+      {
+        name: "Punjabi Mixed Pickle",
+        city: "Punjab",
+        description:
+          "Classic mixed vegetable achar with mustard oil flavor — evergreen taste loved nationwide.",
+        packaging: "Glass jars with seal-proof lids.",
+        image: "/images/mixed_pickle.jpg",
+      },
+      {
+        name: "Multani Papad",
+        city: "Multan",
+        description:
+          "Sun-dried lentil wafers with spicy flavor — easy to fry or roast, travel-friendly.",
+        packaging: "",
+        image: "/images/papad.jpg",
+      },
+    ],
+  },
+];
