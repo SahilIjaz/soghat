@@ -3,6 +3,8 @@ export const categories = [
     id: 1,
     name: "Traditional Sweets (Mithai)",
     shelfLife: "10–20 days",
+    categoryImage:
+      "https://d1n5l80rwxz6pi.cloudfront.net/blog/traditional-indian-sweets-found-in-a-grocery-store.jpg",
     cityFocus: ["Multan", "Karachi", "Peshawar", "Lahore"],
     items: [
       {
@@ -12,7 +14,7 @@ export const categories = [
           "Rich, ghee-based halwa with almonds, pistachios & desi flavor. Iconic Multan specialty, perfect for gifting.",
         packaging:
           "Premium gift packaging available in wooden box or custom basket.",
-        image: "/images/sohanhalwa.jpg", // add your images in /public/images
+        image: "https://m.media-amazon.com/images/I/71c7Kx61XyL._SL1000_.jpg", // add your images in /public/images
       },
       {
         name: "Karachi Rabri",
@@ -20,7 +22,8 @@ export const categories = [
         description:
           "Thick, creamy milk-based delight — rich taste and long shelf life when packed properly.",
         packaging: "Vacuum-sealed box available for freshness.",
-        image: "/images/rabri.jpg",
+        image:
+          "https://newdilpasand.com/wp-content/uploads/2022/03/IMG_0850.jpg",
       },
       {
         name: "Peshawari Patisa",
@@ -28,7 +31,8 @@ export const categories = [
         description:
           "Crunchy, layered sweet with ghee aroma and nut topping. Highly loved during Eid and weddings.",
         packaging: "",
-        image: "/images/patisa.jpg",
+        image:
+          "https://i0.wp.com/alkhairsweets.com.pk/wp-content/uploads/2022/11/Chocolate-Patisa-900-scaled.webp?fit=2560%2C1707&ssl=1",
       },
       {
         name: "Lahori Pera",
@@ -36,13 +40,16 @@ export const categories = [
         description:
           "Milky soft mithai with balanced sweetness — famous from Gawalmandi.",
         packaging: "Small jars and gift boxes available.",
-        image: "/images/pera.jpg",
+        image:
+          "https://cdn-food.tribune.com.pk/gallery/kyzw9BVgHFNHvKs2Q9kYcJzgSHxBXwlApyw41IVF.jpeg",
       },
     ],
   },
   {
     id: 2,
     name: "Dry Fruits & Nuts",
+    categoryImage:
+      "https://www.mevabite.com/cdn/shop/articles/Dry-Fruits-Nuts-Seeds.jpg?v=1725083016",
     shelfLife: "3–6 months",
     cityFocus: ["Gilgit", "Quetta", "Swat"],
     items: [
@@ -52,7 +59,8 @@ export const categories = [
         description:
           "Organically sourced mountain walnuts — fresh, crunchy, high in nutrition.",
         packaging: "Available in resealable pouches or gift jars.",
-        image: "/images/walnuts.jpg",
+        image:
+          "https://media.istockphoto.com/id/1702572826/photo/walnut-tree-with-big-nuts-in-green-shell-close-up-harvesting-time.jpg?s=612x612&w=0&k=20&c=ZWYIshojvt8of-gYxYHPr8uQ5iDMEg3szS5UJLwIaaE=",
       },
       {
         name: "Quetta Almonds",
@@ -60,7 +68,8 @@ export const categories = [
         description:
           "Locally harvested almonds known for rich oil content and strong aroma.",
         packaging: "Premium roasted & salted option available.",
-        image: "/images/almonds.jpg",
+        image:
+          "https://eu-images.contentstack.com/v3/assets/blt7a82e963f79cc4ec/blt465e331f64dd8434/64b547f5b1152f17e44e0311/almonds_4.jpg?width=1280&auto=webp&quality=80&disable=upscale",
       },
       {
         name: "Swat Dried Apricots",
@@ -68,13 +77,16 @@ export const categories = [
         description:
           "Naturally sun-dried, sweet, chewy, and fiber-rich. Ideal for snacks and desserts.",
         packaging: "",
-        image: "/images/apricots.jpg",
+        image:
+          "https://www.mundus-agri.eu/images/news/cache/31122_landscape_large.jpeg",
       },
     ],
   },
   {
     id: 3,
     name: "Natural & Pure Products",
+    categoryImage:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXrApBh03ygrp7msbJz2Ig-utXYaJoaUwN_pahdaKNbqthkP4WcOs2TpzkJvBS8fK2j9Q&usqp=CAU",
     shelfLife: "6–12 months",
     cityFocus: ["Hunza", "Chitral", "Skardu"],
     items: [
@@ -84,7 +96,8 @@ export const categories = [
         description:
           "100% pure, unprocessed honey directly from northern beekeepers.",
         packaging: "Can be packaged in glass jars or honeycomb boxes.",
-        image: "/images/honey.jpg",
+        image:
+          "https://us.123rf.com/450wm/yanadjana/yanadjana2402/yanadjana240201366/226042001-honey-in-the-garden-in-a-jar-selective-focus-food.jpg?ver=6",
       },
       {
         name: "Chitral Desi Ghee",
@@ -92,13 +105,15 @@ export const categories = [
         description:
           "Handmade from cow milk, with strong aroma and natural richness.",
         packaging: "Glass jar and wooden gift pot options available.",
-        image: "/images/ghee.jpg",
+        image: "https://5.imimg.com/data5/PX/UR/MY-22812894/organic-ghee.jpg",
       },
     ],
   },
   {
     id: 4,
     name: "Traditional Pickles & Snacks",
+    categoryImage:
+      "https://savithrammas.com/site/image/cache/catalog/A-Guide-to-Savithrammas-Exotic-Pickles-and-Spices-1080x540.jpg",
     shelfLife: "4–6 months",
     cityFocus: ["Sindh", "Punjab"],
     items: [
@@ -108,7 +123,8 @@ export const categories = [
         description:
           "Tangy, spicy, oil-based mango pickle prepared with traditional masalas.",
         packaging: "Available in mini jars and full-size packs.",
-        image: "/images/mango_pickle.jpg",
+        image:
+          "https://www.pansnovens.com/blog/wp-content/uploads/2021/05/aam-ka-achar-4.jpg",
       },
       {
         name: "Punjabi Mixed Pickle",
@@ -116,7 +132,8 @@ export const categories = [
         description:
           "Classic mixed vegetable achar with mustard oil flavor — evergreen taste loved nationwide.",
         packaging: "Glass jars with seal-proof lids.",
-        image: "/images/mixed_pickle.jpg",
+        image:
+          "https://bhojmasale.com/cdn/shop/articles/gajar-mooli-achar-recipe-446616_1024x1024.webp?v=1739152941",
       },
       {
         name: "Multani Papad",
@@ -124,7 +141,8 @@ export const categories = [
         description:
           "Sun-dried lentil wafers with spicy flavor — easy to fry or roast, travel-friendly.",
         packaging: "",
-        image: "/images/papad.jpg",
+        image:
+          "https://m.media-amazon.com/images/I/51aaGIsBzAL._UF1000,1000_QL80_.jpg",
       },
     ],
   },

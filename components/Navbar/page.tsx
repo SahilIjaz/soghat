@@ -195,9 +195,19 @@ export default function HomePage() {
                     hoveredId === category.id ? "scale(1.15)" : "scale(1)",
                 }}
               >
+                {/* Category Image */}
+                <img
+                  src={category.categoryImage} // your image URL
+                  alt={category.name}
+                  className="absolute inset-0 w-full h-full object-cover rounded-xl opacity-0 transition-opacity duration-1000"
+                  style={{
+                    animation: "fadeInImage 1s ease forwards",
+                  }}
+                />
+
                 {/* Category Name on top when not hovered */}
                 {hoveredId !== category.id && (
-                  <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="absolute inset-0 flex items-center justify-center z-20">
                     <h2 className="text-2xl font-bold text-center px-4 text-[#F5F5DC]">
                       {category.name}
                     </h2>
@@ -206,6 +216,46 @@ export default function HomePage() {
 
                 {/* Overlay details */}
                 <div
+                  className={`absolute inset-0 p-6 flex flex-col justify-between transition-all duration-500 rounded-xl z-30`}
+                  style={{
+                    backgroundColor:
+                      hoveredId === category.id
+                        ? "rgba(62,39,35,0.95)"
+                        : "transparent",
+                    opacity: hoveredId === category.id ? 1 : 0,
+                    pointerEvents: hoveredId === category.id ? "auto" : "none",
+                  }}
+                >
+                  {/* existing overlay content */}
+                </div>
+              </Link>
+
+              {/* <Link
+                href={`/category/${category.id}`}
+                className={`absolute inset-0 rounded-xl shadow-lg transition-all duration-500 overflow-hidden ${
+                  hoveredId === category.id ? "z-50" : "z-10"
+                }`}
+                style={{
+                  backgroundColor: "#2D5541",
+                  boxShadow:
+                    hoveredId === category.id
+                      ? "0 25px 50px -12px rgba(0,0,0,0.5)"
+                      : "0 10px 15px -3px rgba(0,0,0,0.1)",
+                  transform:
+                    hoveredId === category.id ? "scale(1.15)" : "scale(1)",
+                }}
+              >
+                {/* Category Name on top when not hovered */}
+              {/* {/* {hoveredId !== category.id && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <h2 className="text-2xl font-bold text-center px-4 text-[#F5F5DC]">
+                      {category.name}
+                    </h2>
+                  </div>
+                )}
+
+                {/* Overlay details */}
+              {/* <div
                   className={`absolute inset-0 p-6 flex flex-col justify-between transition-all duration-500 rounded-xl`}
                   style={{
                     backgroundColor:
@@ -247,10 +297,10 @@ export default function HomePage() {
                         {category.items.length} products
                       </p>
                     </div>
-                  </div>
+                  </div> */}
 
-                  {/* Button + Name at bottom */}
-                  {hoveredId === category.id && (
+              {/* Button + Name at bottom */}
+              {/* {hoveredId === category.id && (
                     <div className="mt-4 flex flex-col gap-2">
                       <button className="w-full px-4 py-2 rounded-lg text-sm font-semibold border-2 border-[#F5F5DC] text-[#F5F5DC] bg-[#2D5541] hover:scale-105 transition-transform">
                         View Products →
@@ -259,9 +309,10 @@ export default function HomePage() {
                         {category.name}
                       </h2>
                     </div>
-                  )}
-                </div>
-              </Link>
+                  )} */}
+              {/* </div> */}
+              {/* </Link> */}
+              {/* } } */}
             </div>
           ))}
         </div>
