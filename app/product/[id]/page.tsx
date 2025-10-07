@@ -552,6 +552,7 @@ export default function ProductDetailPage() {
                   src={product.image}
                   alt={product.name}
                   fill
+                  unoptimized
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
