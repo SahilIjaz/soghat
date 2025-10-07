@@ -1,115 +1,72 @@
-// "use client";
-// import { useState } from "react";
-// import { useRouter } from "next/navigation";
-
-// export default function SignUpPage() {
-//   const router = useRouter();
-//   const [formData, setFormData] = useState({
-//     name: "",
-//     email: "",
-//     password: "",
-//   });
-
-//   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-//     setFormData({ ...formData, [e.target.name]: e.target.value });
-//   };
-
-//   const handleSubmit = (e: React.FormEvent) => {
-//     e.preventDefault();
-
-//     // Normally you'd send this to your backend
-//     localStorage.setItem("token", "fake-signup-token");
-//     alert("Account created successfully!");
-//     router.push("/cart"); // redirect after signup
-//   };
-
-//   return (
-//     <div className="min-h-screen flex items-center justify-center bg-[#F5F5DC]">
-//       <div className="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-md">
-//         <h2
-//           className="text-3xl font-bold mb-6 text-center"
-//           style={{ color: "#2D5541" }}
-//         >
-//           Create Account
-//         </h2>
-
-//         <form onSubmit={handleSubmit} className="space-y-5">
-//           <input
-//             type="text"
-//             name="name"
-//             placeholder="Full Name"
-//             required
-//             value={formData.name}
-//             onChange={handleChange}
-//             className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#2D5541]"
-//           />
-
-//           <input
-//             type="email"
-//             name="email"
-//             placeholder="Email Address"
-//             required
-//             value={formData.email}
-//             onChange={handleChange}
-//             className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#2D5541]"
-//           />
-
-//           <input
-//             type="password"
-//             name="password"
-//             placeholder="Password"
-//             required
-//             value={formData.password}
-//             onChange={handleChange}
-//             className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#2D5541]"
-//           />
-
-//           <button
-//             type="submit"
-//             className="w-full py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-md"
-//             style={{ backgroundColor: "#2D5541", color: "#F5F5DC" }}
-//           >
-//             Sign Up
-//           </button>
-//         </form>
-
-//         <p className="text-center mt-4 text-gray-600">
-//           Already have an account?{" "}
-//           <button
-//             onClick={() => router.push("/login")}
-//             className="text-[#2D5541] font-semibold hover:underline"
-//           >
-//             Log In
-//           </button>
-//         </p>
-//       </div>
-//     </div>
-//   );
-// }
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useAuth } from "../context/AuthContext";
 
 export default function SignUpPage() {
   const router = useRouter();
   const [form, setForm] = useState({ name: "", email: "", password: "" });
   const [error, setError] = useState("");
+  const { login } = useAuth();
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const res = await fetch("/api/signup", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
-    });
+    setError("");
 
-    const data = await res.json();
-    if (res.ok) {
-      router.push("/cart");
-    } else {
-      setError(data.error || "Something went wrong");
+    try {
+      const res = await fetch("/api/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+        credentials: "include",
+      });
+
+      const data = await res.json();
+      console.log("Signup response:", data);
+
+      if (res.ok) {
+        // ✅ Save user to localStorage
+        login(data.user, false);
+
+        // ✅ Redirect manually on the client (not via middleware)
+        router.push("/cart");
+      } else {
+        setError(data.error || "Something went wrong");
+      }
+    } catch (error) {
+      console.error("Signup error:", error);
+      setError("Network error occurred");
     }
   };
+
+  //   const handleSubmit = async (e: React.FormEvent) => {
+  //     e.preventDefault();
+  //     setError(""); // Clear previous errors
+
+  //     try {
+  //       const res = await fetch("/api/signup", {
+  //         method: "POST",
+  //         headers: { "Content-Type": "application/json" },
+  //         body: JSON.stringify(form),
+  //         credentials: "include",
+  //       });
+
+  //       const data = await res.json();
+  //       console.log("Signup response:", data);
+
+  //       if (res.ok) {
+  //         // Update auth context with the user data
+  //         login(data.user, false);
+
+  //         window.location.href = "/cart";
+  //       } else {
+  //         setError(data.error || "Something went wrong");
+  //       }
+  //     } catch (error) {
+  //       console.error("Signup error:", error);
+  //       setError("Network error occurred");
+  //     }
+  //   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#F5F5DC]">
@@ -127,6 +84,7 @@ export default function SignUpPage() {
           <input
             type="text"
             placeholder="Full Name"
+            style={{ color: "#0b0b09ff" }}
             className="w-full p-3 rounded-md border"
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
@@ -137,12 +95,14 @@ export default function SignUpPage() {
             placeholder="Email"
             className="w-full p-3 rounded-md border"
             value={form.email}
+            style={{ color: "#0b0b09ff" }}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
             required
           />
           <input
             type="password"
             placeholder="Password"
+            style={{ color: "#0b0b09ff" }}
             className="w-full p-3 rounded-md border"
             value={form.password}
             onChange={(e) => setForm({ ...form, password: e.target.value })}

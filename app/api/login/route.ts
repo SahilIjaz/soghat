@@ -27,11 +27,15 @@ export async function POST(req: Request) {
 
     const token = generateToken(user._id);
     const res = NextResponse.json({ message: "Login successful", user });
+    console.log("token is:", token);
+    console.log("user is:", user);
+    console.log("response is:", res);
     res.cookies.set("token", token, {
       httpOnly: true,
       path: "/",
       maxAge: 7 * 24 * 60 * 60,
     });
+
     return res;
   } catch (error) {
     console.error(error);

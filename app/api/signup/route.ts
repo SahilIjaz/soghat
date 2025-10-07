@@ -1,8 +1,9 @@
+
 import { NextResponse } from "next/server";
 import User from "@/models/user";
 import { connectDB } from "@/lib/db";
-import { generateToken } from "@/lib/auth";
 import bcrypt from "bcryptjs";
+import { generateToken } from "@/lib/auth";
 
 export async function POST(req: Request) {
   try {
@@ -12,20 +13,31 @@ export async function POST(req: Request) {
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return NextResponse.json(
-        { error: "User already exists" },
+        { error: "Email already exists" },
         { status: 400 }
       );
     }
 
-    const user = await User.create({ name, email, password });
-    const token = generateToken(user._id);
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newUser = await User.create({
+      name,
+      email,
+      password: hashedPassword,
+    });
 
-    const res = NextResponse.json({ message: "User registered", user });
+    const token = generateToken(newUser._id);
+    const res = NextResponse.json({
+      message: "User created successfully",
+      user: newUser,
+    });
+
+    // ✅ Set login cookie immediately
     res.cookies.set("token", token, {
       httpOnly: true,
       path: "/",
-      maxAge: 7 * 24 * 60 * 60,
+      maxAge: 7 * 24 * 60 * 60, // 7 days
     });
+
     return res;
   } catch (error) {
     console.error(error);
