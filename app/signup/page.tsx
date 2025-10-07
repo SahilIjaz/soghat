@@ -39,35 +39,6 @@ export default function SignUpPage() {
     }
   };
 
-  //   const handleSubmit = async (e: React.FormEvent) => {
-  //     e.preventDefault();
-  //     setError(""); // Clear previous errors
-
-  //     try {
-  //       const res = await fetch("/api/signup", {
-  //         method: "POST",
-  //         headers: { "Content-Type": "application/json" },
-  //         body: JSON.stringify(form),
-  //         credentials: "include",
-  //       });
-
-  //       const data = await res.json();
-  //       console.log("Signup response:", data);
-
-  //       if (res.ok) {
-  //         // Update auth context with the user data
-  //         login(data.user, false);
-
-  //         window.location.href = "/cart";
-  //       } else {
-  //         setError(data.error || "Something went wrong");
-  //       }
-  //     } catch (error) {
-  //       console.error("Signup error:", error);
-  //       setError("Network error occurred");
-  //     }
-  //   };
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#F5F5DC]">
       <div
