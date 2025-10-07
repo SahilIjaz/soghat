@@ -19,7 +19,6 @@ export const categories = [
         price: 1200,
         weight: "1 kg",
       },
-      
       {
         id: 102,
         name: "Karachi Rabri",
