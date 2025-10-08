@@ -591,6 +591,10 @@ import { useCart } from "../context/cartContext";
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import Logo from "../../icon/WhatsApp Image 2025-10-08 at 00.25.03.jpeg";
+import { color } from "framer-motion";
+
+import { v4 as uuidv4 } from "uuid";
+const orderId = uuidv4();
 
 export default function CartPage() {
   const router = useRouter();
@@ -631,6 +635,15 @@ export default function CartPage() {
       const response = await fetch("/api/sendOrderEmail", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        // body: JSON.stringify({
+        //   email: user.email,
+        //   cartItems: cartItems.map((item: any) => ({
+        //     name: item.name,
+        //     quantity: item.quantity,
+        //     price: item.price,
+        //   })),
+        //   total,
+        // }),
         body: JSON.stringify({
           email: user.email,
           cartItems: cartItems.map((item: any) => ({
@@ -639,6 +652,7 @@ export default function CartPage() {
             price: item.price,
           })),
           total,
+          orderId, // add this
         }),
       });
 
@@ -721,7 +735,7 @@ export default function CartPage() {
                   />
                   <h1
                     className="text-2xl font-bold"
-                    style={{ color: "#F5F5DC" }}
+                    style={{ color: "#080807ff" }}
                   >
                     Soghat
                   </h1>
@@ -873,7 +887,7 @@ export default function CartPage() {
                             className="w-8 h-8 font-bold rounded-lg"
                             style={{
                               backgroundColor: "#3E2723",
-                              color: "#F5F5DC",
+                              color: "#030302ff",
                             }}
                           >
                             -
@@ -927,22 +941,28 @@ export default function CartPage() {
               <div className="rounded-xl shadow-lg p-6 bg-white sticky top-24">
                 <h3
                   className="text-2xl font-bold mb-6"
-                  style={{ color: "#3E2723" }}
+                  style={{ color: "#0b0a0aff" }}
                 >
                   Order Summary
                 </h3>
                 <div className="space-y-3">
                   <div className="flex justify-between">
-                    <span>Subtotal</span>
-                    <span>Rs. {subtotal.toLocaleString()}</span>
+                    <span style={{ color: "black" }}>Subtotal</span>
+                    <span style={{ color: "black" }}>
+                      Rs. {subtotal.toLocaleString()}
+                    </span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Shipping</span>
-                    <span>{shipping === 0 ? "FREE" : `Rs. ${shipping}`}</span>
+                    <span style={{ color: "black" }}>Shipping</span>
+                    <span style={{ color: "black" }}>
+                      {shipping === 0 ? "FREE" : `Rs. ${shipping}`}
+                    </span>
                   </div>
                   <div className="flex justify-between font-bold text-lg mt-3">
-                    <span>Total</span>
-                    <span>Rs. {total.toLocaleString()}</span>
+                    <span style={{ color: "black" }}>Total</span>
+                    <span style={{ color: "black" }}>
+                      Rs. {total.toLocaleString()}
+                    </span>
                   </div>
                 </div>
 

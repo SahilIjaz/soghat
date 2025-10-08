@@ -6,12 +6,12 @@ import { useState } from "react";
 import Logo from "../icon/WhatsApp Image 2025-10-08 at 00.25.03.jpeg";
 import { motion, AnimatePresence } from "framer-motion";
 
-import Img1 from "../floating/WhatsApp Image 2025-10-08 at 00.05.13.jpeg";
-import Img2 from "../floating/WhatsApp Image 2025-10-08 at 00.06.21.jpeg";
-import Img3 from "../floating/WhatsApp Image 2025-10-08 at 00.06.39.jpeg";
-import Img4 from "../floating/WhatsApp Image 2025-10-08 at 00.13.12.jpeg";
+import Img1 from "../floating/WhatsApp Image 2025-10-08 at 22.26.16.jpeg";
+import Img2 from "../floating/WhatsApp Image 2025-10-08 at 22.26.28.jpeg";
+import Img3 from "../floating/WhatsApp Image 2025-10-08 at 22.27.27.jpeg";
+// import Img4 from "../floating/WhatsApp Image 2025-10-08 at 00.13.12.jpeg";
 
-const galleryImages = [Img1, Img2, Img3, Img4];
+const galleryImages = [Img1, Img2, Img3];
 
 export default function HomePage() {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
