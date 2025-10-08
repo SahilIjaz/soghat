@@ -11,12 +11,7 @@ import Img2 from "../floating/WhatsApp Image 2025-10-08 at 00.06.21.jpeg";
 import Img3 from "../floating/WhatsApp Image 2025-10-08 at 00.06.39.jpeg";
 import Img4 from "../floating/WhatsApp Image 2025-10-08 at 00.13.12.jpeg";
 
-//
-import Img5 from "../floating/WhatsApp Image 2025-10-08 at 00.05.13.jpeg";
-import Img6 from "../floating/WhatsApp Image 2025-10-08 at 00.06.21.jpeg";
-import Img7 from "../floating/WhatsApp Image 2025-10-08 at 00.06.39.jpeg";
-import Img8 from "../floating/WhatsApp Image 2025-10-08 at 00.13.12.jpeg";
-const galleryImages = [Img1, Img2, Img3, Img4, Img4, Img5, Img6, Img7, Img8];
+const galleryImages = [Img1, Img2, Img3, Img4];
 
 export default function HomePage() {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
