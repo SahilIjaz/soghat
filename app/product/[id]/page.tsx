@@ -225,6 +225,7 @@ export default function ProductDetailPage() {
                       src={product.image}
                       alt={`View ${i}`}
                       fill
+                      unoptimized
                       className="object-cover"
                     />
                   </div>
