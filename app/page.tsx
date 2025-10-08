@@ -3,9 +3,31 @@ import Link from "next/link";
 import Image from "next/image";
 import { categories } from "../lib/data";
 import { useState } from "react";
+import Logo from "../icon/WhatsApp Image 2025-10-08 at 00.25.03.jpeg";
+import { motion, AnimatePresence } from "framer-motion";
+// import logo from "../floating/WhatsApp Image 2025-10-08 at 00.13.12.jpeg";
+import Img1 from "../floating/WhatsApp Image 2025-10-08 at 00.05.13.jpeg";
+import Img2 from "../floating/WhatsApp Image 2025-10-08 at 00.06.21.jpeg";
+import Img3 from "../floating/WhatsApp Image 2025-10-08 at 00.06.39.jpeg";
+import Img4 from "../floating/WhatsApp Image 2025-10-08 at 00.13.12.jpeg";
+
+const galleryImages = [Img1, Img2, Img3, Img4];
 
 export default function HomePage() {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const prevImage = () => {
+    setCurrentIndex((prev) =>
+      prev === 0 ? galleryImages.length - 1 : prev - 1
+    );
+  };
+
+  const nextImage = () => {
+    setCurrentIndex((prev) =>
+      prev === galleryImages.length - 1 ? 0 : prev + 1
+    );
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F5F5DC]">
@@ -18,9 +40,22 @@ export default function HomePage() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <h1 className="text-2xl font-bold" style={{ color: "#F5F5DC" }}>
-                  🍽️ Soghat
-                </h1>
+                {/* Logo Image */}
+                <div className="flex items-center space-x-2">
+                  <Image
+                    src={Logo}
+                    alt="Soghat Logo"
+                    width={32}
+                    height={32}
+                    className="object-contain"
+                  />
+                  <h1
+                    className="text-2xl font-bold"
+                    style={{ color: "#F5F5DC" }}
+                  >
+                    Soghat
+                  </h1>
+                </div>
               </div>
               <div className="hidden md:block ml-10">
                 <div className="flex items-baseline space-x-4">
@@ -96,73 +131,111 @@ export default function HomePage() {
           </div>
         </div>
       </nav>
-
       {/* Header/Hero Section */}
-      <header
-        className="relative overflow-hidden"
-        style={{ backgroundColor: "#2D5541" }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
-          <h1
-            className="text-5xl md:text-6xl font-bold mb-6"
-            style={{ color: "#F5F5DC", animation: "fadeInUp 1s ease-out" }}
+      <section className="relative w-full h-[auto] md:h-[600px]">
+        {/* Image Carousel */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentIndex}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.8 }}
+            className="absolute inset-0 flex justify-center items-center"
           >
-            Fresh Food, Delivered Fast
-          </h1>
-          <p
-            className="text-xl md:text-2xl mb-8"
-            style={{
-              color: "#F5F5DC",
-              opacity: 0.9,
-              animation: "fadeInUp 1s ease-out 0.3s forwards",
-            }}
-          >
-            Explore our wide range of fresh groceries and get them delivered to
-            your doorstep
-          </p>
-          <button
-            className="px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 hover:scale-110 hover:shadow-2xl"
-            style={{
-              backgroundColor: "#F5F5DC",
-              color: "#3E2723",
-              animation: "fadeInUp 1s ease-out 0.6s forwards",
-              opacity: 0,
-            }}
-          >
-            Shop Now
-          </button>
-        </div>
-        <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-          <div
-            className="absolute top-10 left-10 w-32 h-32 rounded-full"
-            style={{
-              backgroundColor: "#F5F5DC",
-              animation: "float 3s ease-in-out infinite",
-            }}
-          ></div>
-          <div
-            className="absolute bottom-10 right-10 w-24 h-24 rounded-full"
-            style={{
-              backgroundColor: "#F5F5DC",
-              animation: "floatDelay 4s ease-in-out infinite",
-            }}
-          ></div>
-          <div
-            className="absolute top-1/2 left-1/4 w-20 h-20 rounded-full"
-            style={{
-              backgroundColor: "#3E2723",
-              animation: "float 3s ease-in-out infinite",
-            }}
-          ></div>
-        </div>
-      </header>
+            <Image
+              src={galleryImages[currentIndex]}
+              alt={`Gallery Image ${currentIndex + 1}`}
+              width={1200}
+              height={800}
+              className="object-cover w-3/4 md:w-1/2 rounded-lg mx-auto"
+              priority
+            />
 
+            {/* <Image
+              src={galleryImages[currentIndex]}
+              alt={`Gallery Image ${currentIndex + 1}`}
+              fill // <-- makes image fill parent
+              className="object-cover w-full h-full rounded-lg"
+              priority
+            /> */}
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Overlay Text with Blur */}
+        <div
+          className="absolute inset-0 flex flex-col items-center justify-center text-center px-32 mt-40 max-w-20xl mx-auto"
+          style={{ top: "40%" }}
+        >
+          <div
+            className="px-6 py-4 rounded-lg"
+            style={{
+              backgroundColor: "rgba(255, 255, 255, 0.2)",
+              backdropFilter: "blur(10px)",
+              WebkitBackdropFilter: "blur(10px)",
+            }}
+          >
+            <motion.h1
+              className="text-4xl md:text-6xl font-bold mb-4 text-[#080808]"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 20 }}
+              transition={{ duration: 1 }}
+            >
+              Connecting you to Pakistan's Heritage
+            </motion.h1>
+            <motion.p
+              className="text-lg md:text-2xl text-[#3E2723] opacity-90"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.3 }}
+            >
+              Savor the flavors of tradition with every bite
+            </motion.p>
+          </div>
+        </div>
+
+        {/* Floating Shapes */}
+        <div className="absolute inset-0 pointer-events-none">
+          <motion.div
+            className="absolute top-10 left-10 w-32 h-32 rounded-full bg-[#F5F5DC] opacity-20"
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div
+            className="absolute bottom-10 right-10 w-24 h-24 rounded-full bg-[#F5F5DC] opacity-20"
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div
+            className="absolute top-1/2 left-1/4 w-20 h-20 rounded-full bg-[#3E2723] opacity-20"
+            animate={{ y: [0, -15, 0] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </div>
+
+        {/* Arrows */}
+        <button
+          onClick={prevImage}
+          className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-[#3E2723] text-[#F5F5DC] px-4 py-2 rounded-r-lg hover:bg-[#2D5541] transition"
+        >
+          &#10094;
+        </button>
+        <button
+          onClick={nextImage}
+          className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-[#3E2723] text-[#F5F5DC] px-4 py-2 rounded-l-lg hover:bg-[#2D5541] transition"
+        >
+          &#10095;
+        </button>
+      </section>
+      {/* //// */}
+
+      {/* Floating Images */}
       {/* Categories Section */}
       <main
         className="flex-1 w-full mx-auto px-4 sm:px-6 lg:px-8 py-16"
         id="categories"
       >
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 mt-20" style={{ marginTop: "150px" }}>
           <h2 className="text-4xl font-bold mb-4 text-[#3E2723]">
             Browse Categories
           </h2>
@@ -284,7 +357,6 @@ export default function HomePage() {
           ))}
         </div>
       </main>
-
       {/* Why Choose Us Section */}
       <section className="py-16" style={{ backgroundColor: "#2D5541" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -346,7 +418,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* Customer Reviews Section */}
       <section className="py-16" style={{ backgroundColor: "#F5F5DC" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -441,37 +512,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Newsletter Section */}
-      <section className="py-16" style={{ backgroundColor: "#3E2723" }}>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4" style={{ color: "#F5F5DC" }}>
-            Subscribe to Our Newsletter
-          </h2>
-          <p
-            className="text-lg mb-8"
-            style={{ color: "#F5F5DC", opacity: 0.8 }}
-          >
-            Get exclusive deals, new product updates, and fresh recipes
-            delivered to your inbox
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="px-4 py-3 rounded-lg flex-1"
-              style={{ backgroundColor: "#F5F5DC", color: "#3E2723" }}
-            />
-            <button
-              className="px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105"
-              style={{ backgroundColor: "#2D5541", color: "#F5F5DC" }}
-            >
-              Subscribe
-            </button>
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer style={{ backgroundColor: "#3E2723" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -631,7 +671,6 @@ export default function HomePage() {
           </div>
         </div>
       </footer>
-
       <style jsx>{`
         @keyframes fadeInUp {
           from {

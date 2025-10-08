@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useCart } from "../context/cartContext";
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
+import Logo from "../../icon/WhatsApp Image 2025-10-08 at 00.25.03.jpeg";
 
 export default function CartPage() {
   const router = useRouter();
@@ -84,9 +85,21 @@ export default function CartPage() {
                 onClick={() => router.push("/")}
                 className="flex-shrink-0"
               >
-                <h1 className="text-2xl font-bold" style={{ color: "#F5F5DC" }}>
-                  🍽️ Soghat
-                </h1>
+                <div className="flex items-center space-x-2">
+                  <Image
+                    src={Logo}
+                    alt="Soghat Logo"
+                    width={32}
+                    height={32}
+                    className="object-contain"
+                  />
+                  <h1
+                    className="text-2xl font-bold"
+                    style={{ color: "#F5F5DC" }}
+                  >
+                    Soghat
+                  </h1>
+                </div>
               </button>
             </div>
           </div>
