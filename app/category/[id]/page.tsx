@@ -8,6 +8,7 @@ export default function CategoryPage() {
   const params = useParams();
   const router = useRouter();
   const [hoveredItem, setHoveredItem] = useState<number | null>(null);
+console.log('changed something');
 
   const category = categories.find((cat) => cat.id === Number(params.id));
 
