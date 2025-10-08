@@ -5,7 +5,7 @@ import { categories } from "../lib/data";
 import { useState } from "react";
 import Logo from "../icon/WhatsApp Image 2025-10-08 at 00.25.03.jpeg";
 import { motion, AnimatePresence } from "framer-motion";
-// import logo from "../floating/WhatsApp Image 2025-10-08 at 00.13.12.jpeg";
+
 import Img1 from "../floating/WhatsApp Image 2025-10-08 at 00.05.13.jpeg";
 import Img2 from "../floating/WhatsApp Image 2025-10-08 at 00.06.21.jpeg";
 import Img3 from "../floating/WhatsApp Image 2025-10-08 at 00.06.39.jpeg";
@@ -151,14 +151,6 @@ export default function HomePage() {
               className="object-cover w-3/4 md:w-1/2 rounded-lg mx-auto"
               priority
             />
-
-            {/* <Image
-              src={galleryImages[currentIndex]}
-              alt={`Gallery Image ${currentIndex + 1}`}
-              fill // <-- makes image fill parent
-              className="object-cover w-full h-full rounded-lg"
-              priority
-            /> */}
           </motion.div>
         </AnimatePresence>
 
@@ -227,7 +219,6 @@ export default function HomePage() {
           &#10095;
         </button>
       </section>
-      {/* //// */}
 
       {/* Floating Images */}
       {/* Categories Section */}
